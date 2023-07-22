@@ -21,8 +21,8 @@ services:
     restart: unless-stopped
     depends_on:
       - database
-    # ports:
-    #   - 5000:5000
+    ports:
+      - 5000:5000
     environment:
       - MONGO_USERNAME=quang
       - MONGO_PASSWORD=Quang.0512
@@ -36,10 +36,10 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
+    depends_on:
+      - server
     ports:
       - 3210:80
-    environment:
-      - REACT_APP_BACKEND_URL=http://server:5000/interns
     networks:
       - app
 

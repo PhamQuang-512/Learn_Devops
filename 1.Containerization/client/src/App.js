@@ -7,6 +7,8 @@ function App() {
 	const [interns, setinterns] = useState([]);
 	useEffect(() => {
 		const url = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000/interns';
+		console.log(process.env.REACT_APP_BACKEND_URL);
+		console.log('url: ', url);
 		axios
 			.get(url, {
 				headers: {
